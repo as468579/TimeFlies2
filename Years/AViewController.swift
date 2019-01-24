@@ -27,6 +27,13 @@ class AViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if timer != nil {
+            timer?.invalidate()
+        }
+    }
+    
     @IBAction func YearSliderFunc(_ sender: Any) {
         YearLabel.text = String(Int(YearSlider.value))
         ChooseImg.image = UIImage(named: "\(Int(YearSlider.value)).png")
@@ -56,6 +63,7 @@ class AViewController: UIViewController {
             }
         }
     }
+    
     @objc func timeFunc() {
         //print("123")
         print(timeImgYear)
@@ -81,7 +89,6 @@ class AViewController: UIViewController {
             timeImgYear = 85
         }
     }
-    
     /*
     // MARK: - Navigation
 
@@ -91,5 +98,4 @@ class AViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

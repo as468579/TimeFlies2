@@ -28,6 +28,13 @@ class BViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if timer != nil {
+            timer?.invalidate()
+        }
+    }
+    
     @IBAction func YearSliderFunc(_ sender: Any) {
         //DateDPicker.date
         YearLabel.text = String(Int(YearSlider.value))
@@ -72,6 +79,5 @@ class BViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
 
